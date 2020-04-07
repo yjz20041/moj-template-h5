@@ -15,7 +15,7 @@ const childProcess = require('child_process');
 const rm = require('rimraf');
 const SOURCE_PATH = path.join(__dirname, './src');
 
-const projectName = 'projectName'; 
+const projectName = '{{projectName}}'; 
 //用项目名 + git commit hash 作为版本号，确保不与其他项目冲突
 const sentryRelease = `${projectName}-${childProcess.execSync('git rev-parse --short=7 HEAD', {encoding: 'utf8'}).trim()}`;
 
@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
     output: {
       path: DIST_PATH,
       filename: PRODUCTION ? '[name].[hash:8].js' : '[name].js',
-      publicPath: PRODUCTION ? (appId ? `${cdnPath}/static_public/${appId}/` : '/st/projectName') : '/'
+      publicPath: PRODUCTION ? (appId ? `${cdnPath}/static_public/${appId}/` : '/st/{{projectName}}') : '/'
     },
     resolve: {
       extensions: ['.jsx', '.js', '.css'],
@@ -159,7 +159,7 @@ module.exports = (env, argv) => {
       projectName,
       release: sentryRelease,
       include: DIST_PATH, 
-      urlPrefix: appId ? `~/static_public/${appId}/` : '~/st/projectName/', 
+      urlPrefix: appId ? `~/static_public/${appId}/` : '~/st/{{projectName}}/', 
       afterUpload: (resolve, reject) => {
         const p = path.join(DIST_PATH, '*.?(css|js).map');
         rm(p, (err) =>{
