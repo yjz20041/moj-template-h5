@@ -17,7 +17,6 @@ es
 
 #vscode
 .vscode
-jsconfig.json
 
 #macos
 .DS_Store
