@@ -23,7 +23,7 @@ if (module.hot) {
 }
 ReactDom.render(
     <Provider store={store}>
-        <Router basename="/{{projectName}}">
+        <Router basename="/projectName">
             <Suspense fallback={<LoadingErrorPage />}>
                 <Route exact path="/" component={Home} />
             </Suspense>

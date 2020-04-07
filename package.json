@@ -1,7 +1,7 @@
 {
-  "name": "{{projectName}}",
+  "name": "projectName",
   "version": "1.0.0",
-  "description": "{{desc}}",
+  "description": "desc",
   "main": "./src/index.js",
   "module": "./es/index.js",
   "scripts": {
