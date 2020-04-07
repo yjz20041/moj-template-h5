@@ -78,7 +78,6 @@ module.exports = (env, argv) => {
   ];
 
   if (!PRODUCTION) {
-        plugins.push(new webpack.HotModuleReplacementPlugin());
         const proxy = require('./proxy.config');
         const proxyTarget = argv.proxyTarget;
         if (proxyTarget) {
@@ -93,7 +92,8 @@ module.exports = (env, argv) => {
             hot: false,
             hotOnly: true,
             historyApiFallback: true,
-            proxy
+            proxy,
+            open: true
         };
     }
   
