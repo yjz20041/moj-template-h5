@@ -29,10 +29,8 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    {{#if elint}}
     "elint": "^1.11.1",
     "@music/elint-preset-base": "^1.0.13",
-    {{/if}}
     "autoprefixer": "^9.7.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
