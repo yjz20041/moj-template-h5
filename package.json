@@ -6,15 +6,14 @@
   "module": "./es/index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.client.js --mode development --colors --progress",
-    "build": "npm run build:webpack && npm run build:es && npm run build:css",
+    "build": "webpack --config ./webpack-client.js --mode production --colors --progress",
     "lint": "run-p lint:*",
     "lint:js": "elint lint es \"**/*.js\" \"**/*.jsx\"",
     "lint:css": "elint lint style \"**/*.css\" \"**/*.less\"",
     "fix": "run-p fix:*",
     "fix:js": "elint lint es \"**/*.js\"  \"**/*.jsx\" --fix",
     "fix:css": "elint lint style \"**/*.css\" \"**/*.less\" --fix",
-    "beforecommit": "elint lint commit && npm run lint",
-    "prepublish": "echo \" prepublish... \" && npm run build"
+    "beforecommit": "elint lint commit && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -68,6 +67,6 @@
     "core-js": "^3.6.4",
     "redux": "^4.0.1",
     "lodash-es": "^4.17.15",
-    "redux-promise-middleware": "^5.1.1",
+    "redux-promise-middleware": "^5.1.1"
   }
 }

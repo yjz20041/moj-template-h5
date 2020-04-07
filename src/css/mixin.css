@@ -1,23 +1,23 @@
 @mixin clearfix {
-  &::after {
-    display: block;
-    content: '';
-    height: 0;
-    width: 0;
-    clear: both;
-    overflow: hidden;
-  }
+    &::after {
+        display: block;
+        content: '';
+        height: 0;
+        width: 0;
+        clear: both;
+        overflow: hidden;
+    }
 }
 
 @mixin ellipsis {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @mixin icon-before {
-  content: '';
-  position: absolute;
-  display: inline-block;
-  background-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    display: inline-block;
+    background-repeat: no-repeat;
 }

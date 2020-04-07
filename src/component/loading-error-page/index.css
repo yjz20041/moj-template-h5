@@ -1,0 +1,43 @@
+.m-loading_page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    background: white;
+
+    .m-top-bar {
+        flex-shrink: 0;
+    }
+
+    .content {
+        flex: 1 1 auto;
+        margin-top: rem(245);
+
+        .error {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            i {
+                display: block;
+                background: url(~asset/image/oops.png) no-repeat center center;
+                background-size: cover;
+                width: rem(273);
+                height: rem(272);
+            }
+
+            .desc {
+                margin-top: 10px;
+                font-size: 17px;
+                color: #666;
+                text-align: center;
+
+                .secondary {
+                    margin-top: 8px;
+                    font-size: 12px;
+                    color: #999;
+                }
+            }
+        }
+    }
+}
