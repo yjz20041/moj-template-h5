@@ -1,15 +1,18 @@
 // ReactDom need Map and Set Polyfill
 import 'core-js/modules/es.map';
 import 'core-js/modules/es.set';
-import React from 'react';
+import { React, Suspense, lazy } from 'react';
 import ReactDom from 'react-dom';
 import '@css/base.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from '@container/Home';
 import {Provider} from 'react-redux';
 import store from '@redux/store';
+import LoadingPage from '@component/loading-page';
+
 
 window.Promise = Promise;
+
+const Home = lazy(() => import('@container/home'));
 
 
 const container = document.getElementById('g-bd');
@@ -21,9 +24,9 @@ if (module.hot) {
 ReactDom.render(
   <Provider store={store}>
     <Router basename="/{{projectName}}">
-      <div>
+      <Suspense fallback={<LoadingPage />}>
         <Route exact path="/" component={Home} />
-      </div>
+      </Suspense>
     </Router>
   </Provider>
   , container);
