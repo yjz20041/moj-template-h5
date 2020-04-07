@@ -4,8 +4,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PolyfillCandyPlugin = require('@music/polyfill-candy-webpack-plugin');
-const ROOT_PATH = path.resolve(__dirname, '..');
-const DIST_PATH = path.resolve(__dirname, '../dist');
+const ROOT_PATH = path.resolve(__dirname, '.');
+const DIST_PATH = path.resolve(__dirname, './dist');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
@@ -30,7 +30,7 @@ module.exports = (env, argv) => {
   const cdnPath = buildProduction ? '//s6.music.126.net' : '//cdntest.igame.163.com';
   const config =  {
     entry: {
-      index: [path.resolve(__dirname, '../client/page/index.jsx')]
+      index: [path.resolve(__dirname, './src/page/index.jsx')]
     },
     output: {
       path: DIST_PATH,
@@ -110,7 +110,7 @@ module.exports = (env, argv) => {
       puzzleSuffix: PRODUCTION ? '' : '-test'
     }),
     new HtmlWebpackHarddiskPlugin({
-      outputPath: path.join(__dirname, '../dist')
+      outputPath: DIST_PATH
     }),
     new PolyfillCandyPlugin({
       enabled: true,

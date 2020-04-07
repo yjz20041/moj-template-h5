@@ -1,7 +1,7 @@
 // ReactDom need Map and Set Polyfill
 import 'core-js/modules/es.map';
 import 'core-js/modules/es.set';
-import { React, Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDom from 'react-dom';
 import '@css/base.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
