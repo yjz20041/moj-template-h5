@@ -58,8 +58,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
-  "peerDependencies": {
-  },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
