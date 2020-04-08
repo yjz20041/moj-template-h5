@@ -10,6 +10,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SentryPlugin = require('@music/sentry-webpack-plugin');
 const childProcess = require('child_process');
 const rm = require('rimraf');
@@ -97,7 +98,9 @@ module.exports = (env, argv) => {
         };
     }
   
-
+    if (env.analysis) {
+      plugins.push(new BundleAnalyzerPlugin());
+    }
 
   // html
   plugins.push(
