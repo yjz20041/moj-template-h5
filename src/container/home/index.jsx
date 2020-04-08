@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { connectByModule } from '@redux/store';
 
 @connectByModule('home', state => ({
