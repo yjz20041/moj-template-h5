@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PolyfillCandyPlugin = require('@music/polyfill-candy-webpack-plugin');
 const ROOT_PATH = path.resolve(__dirname, '.');
-const DIST_PATH = path.resolve(__dirname, './dist');
+const DIST_PATH = path.resolve(__dirname, './public');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
@@ -67,7 +67,7 @@ module.exports = (env, argv) => {
   let plugins = [
     new CleanPlugin(),
     new webpack.DefinePlugin({
-      APPID: appId
+      APPID: JSON.stringify(appId)
     })
   ];
 
@@ -80,7 +80,7 @@ module.exports = (env, argv) => {
             })
         }
         config.devServer = {
-            contentBase: path.join(__dirname, 'dist'),
+            contentBase: DIST_PATH,
             compress: true,
             port: 7166,
             hot: false,
