@@ -73,9 +73,7 @@ module.exports = (env, argv) => {
   ];
   // 插件
   let plugins = [
-    new CleanPlugin(['dist'], {
-      root: ROOT_PATH
-    })
+    new CleanPlugin()
   ];
 
   if (!PRODUCTION) {
