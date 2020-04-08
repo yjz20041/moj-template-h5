@@ -11,15 +11,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const SentryPlugin = require('@music/sentry-webpack-plugin');
-const childProcess = require('child_process');
-const rm = require('rimraf');
 const SOURCE_PATH = path.join(__dirname, './src');
-
-const projectName = '{{projectName}}'; 
-//用项目名 + git commit hash 作为版本号，确保不与其他项目冲突
-const sentryRelease = `${projectName}-${childProcess.execSync('git rev-parse --short=7 HEAD', {encoding: 'utf8'}).trim()}`;
-
 
 
 module.exports = (env, argv) => {
@@ -73,7 +65,10 @@ module.exports = (env, argv) => {
   ];
   // 插件
   let plugins = [
-    new CleanPlugin()
+    new CleanPlugin(),
+    new webpack.DefinePlugin({
+      APPID: appId
+    })
   ];
 
   if (!PRODUCTION) {
@@ -107,7 +102,6 @@ module.exports = (env, argv) => {
       filename: 'index.html',
       alwaysWriteToDisk: true,
       inlineSource: PRODUCTION ? /\.css$/ : false,
-      sentryRelease,
       puzzleSuffix: PRODUCTION ? '' : '-test'
     }),
     new HtmlWebpackHarddiskPlugin({
@@ -152,25 +146,6 @@ module.exports = (env, argv) => {
       })
     )
 
-  }
-
-  if (PRODUCTION) {
-    plugins.push(new SentryPlugin({
-      org: 'music163',
-      projectName,
-      release: sentryRelease,
-      include: DIST_PATH, 
-      urlPrefix: appId ? `~/static_public/${appId}/` : '~/st/{{projectName}}/', 
-      afterUpload: (resolve, reject) => {
-        const p = path.join(DIST_PATH, '*.?(css|js).map');
-        rm(p, (err) =>{
-          if (err) {
-            reject(err);
-          }
-          resolve();
-        })
-      }
-    }));
   }
 
   rules.push({

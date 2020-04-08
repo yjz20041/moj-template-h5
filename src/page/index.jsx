@@ -21,9 +21,13 @@ if (module.hot) {
     ReactDom.unmountComponentAtNode(container);
     module.hot.accept();
 }
+
+// eslint-disable-next-line no-undef
+const basename = APPID ? APPID.split('_')[0] : '{{projectName}}';
+
 ReactDom.render(
     <Provider store={store}>
-        <Router basename="/{{projectName}}">
+        <Router basename={`/${basename}`}>
             <Suspense fallback={<LoadingErrorPage />}>
                 <Route exact path="/" component={Home} />
             </Suspense>
