@@ -60,7 +60,7 @@
     "@music/elint-preset-base": "^1.0.13",
     {{/if}}
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^6.8.0"
   },
   "dependencies": {
     "react": "^16.13.1",
