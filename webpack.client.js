@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const PolyfillCandyPlugin = require('@music/polyfill-candy-webpack-plugin');
+// const PolyfillCandyPlugin = require('@music/polyfill-candy-webpack-plugin');
 
 
 const DIST_PATH = path.resolve(__dirname, './public');
@@ -113,12 +113,12 @@ module.exports = (env, argv) => {
         new HtmlWebpackHarddiskPlugin({
             outputPath: DIST_PATH
         }),
-        new PolyfillCandyPlugin({
-            enabled: false,
-            upload: true,
-            prod: PRODUCTION
-            // debug: !PRODUCTION
-        })
+        // new PolyfillCandyPlugin({
+        //     enabled: false,
+        //     upload: true,
+        //     prod: PRODUCTION
+        //     // debug: !PRODUCTION
+        // })
     );
     if (PRODUCTION) {
         plugins.push(
