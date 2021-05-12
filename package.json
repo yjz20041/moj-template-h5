@@ -8,13 +8,8 @@
     "start": "webpack-dev-server --config ./webpack.client.js --mode development --colors --progress",
     "build": "webpack --config ./webpack.client.js --mode production --colors --progress",
     "analysis": "webpack --config ./webpack.client.js --mode production --colors --progress --env.analysis",
-    "lint": "run-p lint:*",
-    "lint:js": "elint lint es \"**/*.js\" \"**/*.jsx\"",
-    "lint:css": "elint lint style \"**/*.css\" \"**/*.less\"",
-    "fix": "run-p fix:*",
-    "fix:js": "elint lint es \"**/*.js\"  \"**/*.jsx\" --fix",
-    "fix:css": "elint lint style \"**/*.css\" \"**/*.less\" --fix",
-    "beforecommit": "elint lint commit && npm run lint"
+    "lint": "lintall",
+    "beforecommit": "lintall commit && lintall"
   },
   "repository": {
     "type": "git",
