@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"outDir": "./",
+		"jsx": "react",
+		"strict": true,   /* enable all strict type-checking options */
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"allowJs": true
+	},
+	"include": ["./src"],
+	"exclude": [
+		"node_modules",
+	],
+}

@@ -3,3 +3,4 @@ module.exports = [{
     target: 'http://cms.qa.igame.163.com',
     changeOrigin: true
 }];
+

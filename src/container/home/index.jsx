@@ -5,6 +5,7 @@ import { connectByModule } from '@redux/store';
     hello: state.home.hello
 }))
 class Home extends React.PureComponent {
+
     render() {
         return <div>hello</div>;
     }

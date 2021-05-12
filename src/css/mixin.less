@@ -1,4 +1,4 @@
-@mixin clearfix {
+.clearfix {
     &::after {
         display: block;
         content: '';
@@ -9,13 +9,13 @@
     }
 }
 
-@mixin ellipsis {
+.ellipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-@mixin icon-before {
+.icon-before {
     content: '';
     position: absolute;
     display: inline-block;

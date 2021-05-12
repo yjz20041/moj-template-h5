@@ -22,8 +22,12 @@ if (module.hot) {
     module.hot.accept();
 }
 
+// 离线包应用
 // eslint-disable-next-line no-undef
-const basename = APPID ? APPID.split('_')[0] : '{{projectName}}';
+// const basename = APPID ? APPID.split('_')[0] : '<$=projectName$>';
+
+// 普通h5应用
+const basename = '<$=projectName$>';
 
 ReactDom.render(
     <Provider store={store}>
